@@ -1,15 +1,23 @@
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Galvanize Personnel</title>
-        <link rel="stylesheet" href="./assets/styles/main.css">
+        <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-      <h1>Galvanize Personnel</h1>
-      <form>
-        <!-- Your code here! -->
-      </form>
-      <script src="./assets/scripts/app.js" charset="utf-8"></script>
+        <h1>Galvanize Personnel</h1>
+        <form>
+            <label for="first-name-input">First Name</label>
+            <input id="first-name-input" type="text"/>
+            <label for="last-name-input">Last Name</label>
+            <input id="last-name-input" type="text"/>
+            <label for="role-input">Role</label>
+            <select id="role-input">
+                <option disabled>Select an option here</option>
+            </select>
+            <img class="role-preview" src="" alt="Placeholder"/>
+            <button class="save">Save</button>
+            <p class="save-status"></p>
+        </form>
     </body>
 </html>

@@ -8,18 +8,15 @@ h1 {
 }
 
 form {
-    /* --size is a CSS Variable.  Read:
-     * CSS Variables: Why Should You Care (https://developers.google.com/web/updates/2016/02/css-variables-why-should-you-care)
-     * Using CSS Variables: (https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
-    */
-    --size: 275px;
-    width: var(--size);
+    width: 250px;
 }
 
 label, input, select, button {
     display: block;
     width: 100%;
-    font-size: 1.5rem;
+}
+label {
+    font-size: 0.75rem;
 }
 
 button {
@@ -32,6 +29,7 @@ button {
     transition: all 0.2s;
     color: white;
     font-weight: 700;
+    font-size: 1.5rem;
 }
 .save:hover {
     background-color: hsl(140, 50%, 60%);
@@ -39,7 +37,6 @@ button {
 
 .save-status {
     display: none;
-    text-align: center;
 }
 
 input, select {
@@ -47,8 +44,7 @@ input, select {
 }
 
 .role-preview {
-    /* What is --size?  Check the form properties near the top of this page */
-    width: var(--size);
-    height: var(--size);
+    width: 250px;
+    height: 250px;
     margin-bottom: 1rem;
 }
