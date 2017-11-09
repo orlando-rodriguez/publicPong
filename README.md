@@ -1,6 +1,6 @@
 ## Galvanize Telephone
 
-In Galvanize Telephone, you'll across data across networks and add it to your pages.
+In Galvanize Telephone, you'll access data across networks and add it to your pages.
 
 ## Standard
 
