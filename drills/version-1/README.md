@@ -12,7 +12,7 @@ You'll need to:
 
 1. Using the included `app.js` file, make a `GET` request using the fetch API to the URL `https://quiet-bayou-99554.herokuapp.com/api/v1/contacts`.
 
-Once you have the data, add the following elements to the page. (Note: the styles are done for you.)
+Once you have the data, add the following elements to the page. Please note that the styles are done for you. 😀
 * An `li` for each character that includes:
   * An `img` tag that renders the character's image
   * A `span` tag that displays the character's name and phone number
@@ -34,4 +34,4 @@ Once you have the data, add the following elements to the page. (Note: the style
     * The default behavior should be prevented
     * The form values should be `POST`ed to `https://quiet-bayou-99554.herokuapp.com/api/v1/contacts` in the following format:
         * `{name: "Joyce", message: "Chill out."}`
-1. If you properly format the data and send it using a `POST` request, 
+4. If you properly format the data and send it using a `POST` request, you should see ####. If it doesn't work, you will see an error message. 
