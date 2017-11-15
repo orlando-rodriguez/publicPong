@@ -34,4 +34,5 @@ Once you have the data, add the following elements to the page. Please note that
     * The default behavior should be prevented
     * The form values should be `POST`ed to `https://quiet-bayou-99554.herokuapp.com/api/v1/contacts` in the following format:
         * `{name: "Joyce", message: "Chill out."}`
-4. If you properly format the data and send it using a `POST` request, you should see ####. If it doesn't work, you will see an error message. 
+4. If you properly format the data and send it using a `POST` request, you should see ####. If it doesn't work, you will see an error message.
+5. Deploy your app and submit your link to be graded. 
