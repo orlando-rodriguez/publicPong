@@ -22,12 +22,16 @@ function getData() {
           img = createNode('img'),
           span = createNode('span'),
           p = createNode('p');
+          a = createNode('a')
         img.src = character.imageURL;
         span.innerHTML = `${character.name}: ${character.phone}`;
         p.innerHTML = `${character.message}`;
+        a.innerHTML = `Leave ${character.name} a Message`
+        a.href = 'contact.html'
         append(li, img);
         append(li, span);
         append(li, p);
+        append(li, a)
         append(ul, li);
       });
     });
