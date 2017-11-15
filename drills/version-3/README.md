@@ -7,7 +7,7 @@ You are making an app for your new company that assigns roles to employees. You'
 * Read values from a text input, checkbox, radio button, and drop down
 * Send form data to an external URL
 * Respond to change events
-* Responsd to callbacks
+* Respond to callbacks
 * Deploy to a public URL
 
 ## Steps
