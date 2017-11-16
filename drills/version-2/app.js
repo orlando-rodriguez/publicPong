@@ -178,7 +178,8 @@ function triggerEvent(event) {
   }
 
   if (Events.GAME_OVER === event) {
-    onGameEnd(score)
+    document.querySelector("canvas").dispatchEvent(new Event("gameOver"));
+    // onGameEnd(score)
   }
 }
 
@@ -214,7 +215,10 @@ function renderTopScores(scores) {
   document.querySelector('.scores').innerHTML = scoresHtml.join('')
 }
 
-function onGameEnd(finalScore) {
+document.querySelector("canvas").addEventListener("gameOver", onGameEnd);
+
+function onGameEnd() {
+  const finalScore = score;
   alert(`Final Score: ${finalScore}`)
 
   fetch(`https://galvanize-leader-board.herokuapp.com/api/v1/leader-board`, {
