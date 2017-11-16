@@ -1,27 +1,35 @@
-const API_URL = 'https://quiet-bayou-99554.herokuapp.com/api/v1/contacts';
+(function initializePage(){
+    populateName(new URL(location).searchParams.get("character"));
+    document.querySelector("form").addEventListener("submit", formSubmissionHandler);
+})();
 
-var form = document.getElementById("message-form");
-var nameElement = document.getElementById('txt-name');
-var messageElement = document.getElementById('msg');
-var submitButton = document.getElementById('submit-btn')
+function populateName(name){
+    $nameInput = document.querySelector("#character");
+    $nameInput.value = name;
+}
 
-submitButton.onclick = function(event) {
-  event.preventDefault()
-  let name = nameElement.value;
-  let message = messageElement.value
-  let voiceMail = {
-    "name": name,
-    "message": message
-  };
-  fetch(API_URL, {
-      method: "post",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(voiceMail)
-    })
-    .then((response) => {
-      console.log(response.status);
-    });
-  form.reset()
+function formSubmissionHandler(event){
+    event.preventDefault();
+
+    const apiUrl = "https://quiet-bayou-99554.herokuapp.com/api/v1/contacts";
+    const data = new FormData(event.target);
+    fetch(apiUrl, {
+        method: "POST",
+        body: JSON.stringify({
+            data: {
+                character: data.get("character"),
+                message: data.get("message")
+            }
+        }),
+        headers: new Headers({"Content-Type": "application/json"})
+    }).then(response => response.json())
+    .then(responseToStatus);
+}
+
+function responseToStatus(response){
+    response.error ? displayStatus(response.error.message) : displayStatus(response.data.message);
+}
+
+function displayStatus(status){
+    document.querySelector("#status").textContent = status;
 }

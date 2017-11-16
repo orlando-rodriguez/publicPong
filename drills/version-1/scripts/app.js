@@ -1,40 +1,47 @@
-const API_URL = 'https://quiet-bayou-99554.herokuapp.com/api/v1/contacts';
+(function initializePage(){
+    const apiUrl = "https://quiet-bayou-99554.herokuapp.com/api/v1/contacts";
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(response => response.data)
+        .then(data => data.forEach(buildCharacter));
+})();
 
-function createNode(element) {
-  return document.createElement(element);
+function buildCharacter(character){
+    const $li = document.createElement("li");
+    const $elements = [
+        buildImage(character.imageURL, character.name),
+        buildNameplate(character.name, character.phone),
+        buildMessage(character.message),
+        buildLink(character.name)
+    ].forEach($element => $li.appendChild($element));
+
+    document.querySelector("#characters").appendChild($li);
 }
 
-function append(parent, el) {
-  return parent.appendChild(el);
+function buildImage(imageUrl, altText){
+    const $image = document.createElement("img");
+    $image.src = imageUrl;
+    $image.alt = altText;
+    return $image;
 }
 
-const ul = document.getElementById('characters');
-
-function getData() {
-  fetch(API_URL)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      let characters = data.data;
-      return characters.map(function(character) {
-        let li = createNode('li'),
-          img = createNode('img'),
-          span = createNode('span'),
-          p = createNode('p');
-          a = createNode('a')
-        img.src = character.imageURL;
-        span.innerHTML = `${character.name}: ${character.phone}`;
-        p.innerHTML = `${character.message}`;
-        a.innerHTML = `Leave ${character.name} a Message`
-        a.href = 'contact.html'
-        append(li, img);
-        append(li, span);
-        append(li, p);
-        append(li, a)
-        append(ul, li);
-      });
-    });
+function buildNameplate(name, phoneNumber){
+    return buildElement("span", `${name} - ${phoneNumber}`);
 }
 
-getData();
+function buildMessage(message){
+    return buildElement("p", message);
+}
+
+function buildLink(name){
+    const $a = buildElement("a", `Leave ${name} a message`);
+    $a.href = `contact.html?character=${name}`;
+    return $a;
+}
+
+function buildElement(tagName, text){
+    const $element = document.createElement(tagName);
+    const $text = document.createTextNode(text);
+    $element.appendChild($text);
+    return $element;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "galvanize-telephone-1",
+  "version": "1.0.0",
+  "description": "Galvanize Telephone, version 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha -wG"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gSchool/galvanize-telephone.git"
+  },
+  "author": "Kyle Coberly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gSchool/galvanize-telephone/issues"
+  },
+  "homepage": "https://github.com/gSchool/galvanize-telephone#readme"
+}
