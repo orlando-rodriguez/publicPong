@@ -1,34 +1,29 @@
-var personnel;
-var roles;
-var apiURL = "https://secure-eyrie-78012.herokuapp.com";
+let roles;
+const apiURL = "https://secure-eyrie-78012.herokuapp.com";
 
-$(document).ready(function(){
-    attachHandlers();
-    fetchRoles().then(function(result){
-        roles = result;
-        populateRoleDropdown();
-    });
-    $(".role-preview").attr("src", [apiURL, "images", "placeholder.jpg"].join("/"));
+attachHandlers();
+fetchRoles().then(function(result){
+    roles = result;
+    populateRoleDropdown();
 });
+document.querySelector(".role-preview").src = [apiURL, "images", "placeholder.jpg"].join("/");
 
 function attachHandlers(){
-    $(".save").click(function(event){
+    document.querySelector(".save").addEventListener("click", function(event){
         event.preventDefault();
         saveData().then(function(message){
             updateSaveMessage(message);
         });
     });
-    $("#role-input").change(function(){
-        changePicture(getRole($(this).val()));
+    document.querySelector("#role").addEventListener("change", function(event){
+        changePicture(getRole(event.target.value));
     });
 }
 
 function populateRoleDropdown(){
-    rolesOptions = [];
-    for (var i = 0, rolesLength = roles.length; i < rolesLength; i++){
-        rolesOptions.push(new roleOption(roles[i]));
-    }
-    $("#role-input").append(rolesOptions);    
+    roles.map(role => new roleOption(role)).forEach($role => {
+        document.querySelector("#role").appendChild($role);
+    });
 }
 
 function getRole(id){
@@ -41,17 +36,11 @@ function findById(collection, id){
             return collection[i];
         }
     }
-
-    return false;
+    return {};
 }
 
 function fetchRoles(){
-    return new Promise (function(resolve, reject){
-        var endpoint = [apiURL, "roles"].join("/");
-        $.get(endpoint, function(result){
-            resolve(result);
-        });
-    });
+    return fetch(`${apiURL}/roles`).then(response => response.json());
 }
 
 function roleOption(role){
@@ -63,33 +52,34 @@ function roleOption(role){
 }
 
 function getFormData(){
-    var firstName = $("#first-name-input").val();
-    var lastName = $("#last-name-input").val();
-    var role = $("#role-input").val();
-
+    const data = new FormData(document.querySelector("form"));
     return {
-        firstName: firstName,
-        lastName: lastName,
-        role: role
+        firstName: data.get("first-name"),
+        lastName: data.get("last-name"),
+        role: data.get("role")
     };
 }
 
 function changePicture(role){
-    var imageURL = [apiURL, "images", role.imageURL].join("/");
-    $(".role-preview").attr("src", imageURL);
+    document.querySelector(".role-preview").src = `${apiURL}/images/${role.imageURL}`;
 }
 
 function saveData(){
-    return new Promise(function(resolve, reject){
-        var endpoint = [apiURL, "users"].join("/");
-        $.post(endpoint, getFormData(), function(response){
-            resolve(response.message);
-        });
-    });
+    return fetch(`${apiURL}/users`, {
+        method: "POST",
+        headers: new Headers({
+            "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(getFormData())
+    }).then(response => response.json())
+    .then(response => response.message)
+    .catch(console.error);
 }
 
 function updateSaveMessage(message){
-    var saveStatusElement = $(".save-status");
-    saveStatusElement.text(message);
-    saveStatusElement.fadeIn(500).delay(2000).fadeOut(500);
+    var $status = document.querySelector(".save-status");
+    $status.textContent = message;
+    setTimeout(()=>{
+        $status.textContent = "";
+    }, 4000);
 }

@@ -1,23 +1,22 @@
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
-        <script src="app.js"></script>
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <h1>Galvanize Personnel</h1>
-        <form>
-            <label for="first-name-input">First Name</label>
-            <input id="first-name-input" type="text"/>
-            <label for="last-name-input">Last Name</label>
-            <input id="last-name-input" type="text"/>
-            <label for="role-input">Role</label>
-            <select id="role-input">
-                <option disabled>Select an option here</option>
+        <form action="#">
+            <label for="first-name">First Name</label>
+            <input id="first-name" name="first-name" type="text"/>
+            <label for="last-name">Last Name</label>
+            <input id="last-name" name="last-name" type="text"/>
+            <label for="role">Role</label>
+            <select id="role" name="role">
+                <option>Select an option here</option>
             </select>
             <img class="role-preview" src="" alt="Placeholder"/>
-            <button class="save">Save</button>
+            <input type="submit" class="save" value="Save" />
             <p class="save-status"></p>
         </form>
+        <script src="app.js"></script>
     </body>
 </html>

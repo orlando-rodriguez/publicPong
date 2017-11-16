@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-    font-family: "verdana";
+    font-family: "Open Sans";
     margin: 1rem;
 }
 
@@ -8,7 +10,7 @@ h1 {
 }
 
 form {
-    width: 250px;
+    max-width: 20rem;
 }
 
 label, input, select, button {
@@ -30,21 +32,23 @@ button {
     color: white;
     font-weight: 700;
     font-size: 1.5rem;
+    padding: 1rem;
+    border: none;
 }
 .save:hover {
     background-color: hsl(140, 50%, 60%);
 }
 
-.save-status {
-    display: none;
-}
-
 input, select {
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+select {
+    background-color: #fff;
 }
 
 .role-preview {
-    width: 250px;
-    height: 250px;
+    width: 100%;
     margin-bottom: 1rem;
 }
