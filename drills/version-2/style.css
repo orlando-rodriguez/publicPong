@@ -1,0 +1,82 @@
+html, body {
+  height: 100vh;
+}
+body {
+  display: flex;
+  font-family: sans-serif;
+  color: #666;
+}
+
+* { padding: 0; margin: 0; }
+canvas { background: #eee; display: block; margin: 0 auto; }
+
+main {
+  margin: auto;
+}
+
+header {
+  display: flex;
+}
+
+.scores-title {
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+form {
+  position: relative;
+  top: -15em;
+  text-align: center;
+}
+
+.big-input {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 2em;
+  background: none;
+  border: 0;
+  border-bottom: solid 1px #aaa;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  margin-bottom: auto;
+  color: #aaa;
+}
+.player-name {
+  font-size: 1em;
+}
+.score {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.start-button {
+  display: block;
+  width: 50%;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  background: #f68f1e;
+  margin: 1em auto;
+  padding: 0.5em;
+  border: 0;
+}

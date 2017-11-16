@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Galvanize Pong Breakout</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <header>
+                <p><img src="galvanize-logo.png" alt="" width="112" /></p>
+                <section class="scores">
+                    <!-- scores will be rendered here -->
+                </section>
+            </header>
+            <canvas id="myCanvas" width="480" height="320"></canvas>
+            <form onSubmit="startGame(event)">
+                <input class="big-input" type="text" placeholder="Who is playing?" maxlength="15" />
+                <button class="start-button">Start</button>
+            </form>
+        </main>
+        <script src="game.js" charset="utf-8"></script>
+        <script src="app.js" charset="utf-8"></script>
+    </body>
+</html>
