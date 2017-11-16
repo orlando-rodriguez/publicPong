@@ -1,16 +1,15 @@
-# Galvanize Breakout Pong Rubric
+# Galvanize Telephone Pong Rubric
 
 ## Functional
 
-- [ ] Uses `getTopScores()` to make `GET` request with a `fetch()` call
-- [ ] `GET` request is using the URL for the game name `GBP`
-- [ ] Calls `renderTopScores()` with the latest scores from the API in a `.then()`
-- [ ] Catches and alerts any errors from `GET` request
-- [ ] Uses `onGameEnd()` to make `POST` request with `fetch()` API
-- [ ] `POST` calls are using the `GBP` game name
-- [ ] `POST` calls are sent using headers to accept JSON
-- [ ] Updates the latest scores when `POST` data returns
-- [ ] Catches and alerts any errors from `POST` request
+- [ ] Gets the top scores from the Leaderboard API
+- [ ] Renders the top 3 scores to the page (`<p class="score-card"><span class="player-name"></span><span class="score"></span></p>`)
+- [ ] Listens for `gameOver` event on the `canvas` element
+- [ ] `POST`s the final score to the Leaderboard API
+- [ ] `POST` call is sent using headers for JSON
+- [ ] Refreshes the score when the game is over
+- [ ] Catches and logs any errors from `POST` request
+- [ ] Deployed
 
 ## Style
 
