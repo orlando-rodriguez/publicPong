@@ -25,7 +25,7 @@ You are making an app for your new company that assigns roles to employees. You'
     * Whenever the role is changed, the image should be updated with the `imageURL` of that role
     * Whenever the form is submitted the form values should be `POST`ed to `https://secure-eyrie-78012.herokuapp.com/roles` in the following format:
         * `{firstName: "Kyle", lastName: "Coberly", role: 1}`
-    * When the result of the `POST` from the save button returns, you should display the resulting `message` should be added to the `.save-status` paragraph, displayed for 4000ms, and then removed.
+    * When the result of the `POST` from the save button returns, you should display the resulting `message` should be added to the empty paragraph, displayed for 4000ms, and then removed.
     * When finished, your form should be able to do this: ![Filled out form](assets/galvanize_personnel_2.png)
 1. If you do it right, the following combinations should return `Success!`
     * Kyle Coberly, Assassin
