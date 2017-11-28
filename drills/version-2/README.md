@@ -4,7 +4,7 @@ We've built a game from the tutorial [2D Breakout Game in Pure JavaScript](https
 
 ![Pong Screenshot](./galvanize-breakout-pong-screenshot.png)
 
-Use the [Leaderboard API](https://galvanize-leader-board.herokuapp.com/) to read and add scores to this game. Read the documentation at the link to learn the data format. This game uses the game name `GBP`. The only file you'll need to edit is `app.js`.
+Use the [Leaderboard API](https://galvanize-leader-board.herokuapp.com/) to read and add scores to this game. Read the documentation at the link to learn the data format. This game uses the game name `GBP`. The only file you are required to edit is `app.js`. If you want to get the page to match the exact styles, you can edit the css. Editing the CSS is optional. 
 
 * On page load, get the latest scores from the API and add them to the `.scores` list. For the top three scores (in descending order):
     * Make a `p` tag with the class of `score-card`
